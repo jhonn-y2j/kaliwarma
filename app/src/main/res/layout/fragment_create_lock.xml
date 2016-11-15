@@ -29,6 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
+        android:singleLine="true"
+        android:inputType="text"
         android:hint="Escribe aqui" />
 
     <TextView

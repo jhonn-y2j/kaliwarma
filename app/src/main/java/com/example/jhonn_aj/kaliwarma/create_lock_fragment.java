@@ -58,7 +58,7 @@ public class create_lock_fragment extends Fragment  {
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
                         String hora=i+":"+i1;
                         hora1.setText(hora);
-                        Log.d(create_lock_fragment.class.getName(),"Mostrar Time Picker :) 01" + i + i1);
+                        Log.d(create_lock_fragment.class.getName(),"Mostrar Time Picker :) 01 " + hora);
                     }
                 },hour,minute, android.text.format.DateFormat.is24HourFormat(getActivity()));
                 timePickerDialog.show();
@@ -68,7 +68,7 @@ public class create_lock_fragment extends Fragment  {
         mPickTime2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Calendar calendar = Calendar.getInstance();
+                /*final Calendar calendar = Calendar.getInstance();
                 int yy = calendar.get(Calendar.YEAR);
                 int mm = calendar.get(Calendar.MONTH);
                 int dd = calendar.get(Calendar.DAY_OF_MONTH);
@@ -81,7 +81,19 @@ public class create_lock_fragment extends Fragment  {
                         //Log.d(create_lock_fragment.class.getName(),"Mostrar Time Picker :) 02" + date);
                     }
                 }, yy, mm, dd);
-                datePicker.show();
+                datePicker.show();*/
+                final Calendar c = Calendar.getInstance();
+                int hour = c.get(Calendar.HOUR_OF_DAY);
+                int minute = c.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog= new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                        String hora=i+":"+i1;
+                        hora2.setText(hora);
+                        Log.d(create_lock_fragment.class.getName(),"Mostrar Time Picker :) 02 " + hora);
+                    }
+                },hour,minute, android.text.format.DateFormat.is24HourFormat(getActivity()));
+                timePickerDialog.show();
             }
         });
 

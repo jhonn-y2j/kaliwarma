@@ -13,12 +13,32 @@ public class aplicacion {
     private String title;
     private String horario;
 
+    private boolean app_lock;
+
     private boolean verificar;
 
-    public static final List<aplicacion> aplicacionList= new ArrayList<>();
+    public static List<aplicacion> aplicacionList= new ArrayList<>();
 
     static {
+        aplicacionList.add(new aplicacion(R.drawable.ic_menu_gallery,"15/11/2016","Class of English","8:00 AM - 11:00 AM",false));
+        aplicacionList.add(new aplicacion(R.drawable.ic_menu_send,"15/11/2016","Class of English","8:00 AM - 11:00 AM",false));
+        aplicacionList.add(new aplicacion(R.drawable.ic_menu_share,"15/11/2016","Class of English","8:00 AM - 11:00 AM",false));
+        aplicacionList.add(new aplicacion(R.drawable.ic_menu_slideshow,"15/11/2016","Class of DIU","8:00 AM - 11:00 AM",true));
+        aplicacionList.add(new aplicacion(R.drawable.ic_menu_camera,"15/11/2016","Class of English","8:00 AM - 11:00 AM",false));
+        aplicacionList.add(new aplicacion(R.drawable.ic_menu_manage,"15/11/2016","Class of English","8:00 AM - 11:00 AM",false));
+        aplicacionList.add(new aplicacion(R.drawable.ic_menu_send,"15/11/2016","Test Software","8:00 AM - 11:00 AM",false));
+        aplicacionList.add(new aplicacion(R.drawable.ic_menu_gallery,"15/11/2016","Class of English","8:00 AM - 11:00 AM",false));
+        aplicacionList.add(new aplicacion(R.drawable.ic_menu_share,"15/11/2016","Class of English","8:00 AM - 11:00 AM",false));
+        aplicacionList.add(new aplicacion(R.drawable.ic_menu_slideshow,"15/11/2016","Eliminatorias 2016","8:00 AM - 11:00 AM",true));
+        aplicacionList.add(new aplicacion(R.drawable.ic_menu_gallery,"15/11/2016","Class of English","8:00 AM - 11:00 AM",false));
+    }
 
+    public aplicacion(int img_aplication, String date, String title, String horario, boolean app_lock) {
+        this.img_aplication = img_aplication;
+        this.date = date;
+        this.title = title;
+        this.horario = horario;
+        this.app_lock = app_lock;
     }
 
     public aplicacion(){
@@ -34,6 +54,14 @@ public class aplicacion {
         this.img_aplication = img_aplication;
         this.title = title;
         this.verificar = verificar;
+    }
+
+    public boolean isApp_lock() {
+        return app_lock;
+    }
+
+    public void setApp_lock(boolean app_lock) {
+        this.app_lock = app_lock;
     }
 
     public boolean isVerificar() {

@@ -83,6 +83,7 @@ public class activity_aplicaciones extends AppCompatActivity {
             datos.get(i).setVerificar(true);
             i++;
         }
+
         aplicacion_adapter adapter=new aplicacion_adapter(this,R.layout.list_item_aplication,datos,true);
         listview.setAdapter(adapter);
 
