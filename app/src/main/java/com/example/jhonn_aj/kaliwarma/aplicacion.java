@@ -13,10 +13,30 @@ public class aplicacion {
     private String title;
     private String horario;
 
+    private boolean verificar;
+
     public static final List<aplicacion> aplicacionList= new ArrayList<>();
 
     static {
 
+    }
+
+    public aplicacion(){
+
+    }
+
+    public aplicacion(int img_aplication, String title, boolean verificar) {
+        this.img_aplication = img_aplication;
+        this.title = title;
+        this.verificar = verificar;
+    }
+
+    public boolean isVerificar() {
+        return verificar;
+    }
+
+    public void setVerificar(boolean verificar) {
+        this.verificar = verificar;
     }
 
     public int getImg_aplication() {
