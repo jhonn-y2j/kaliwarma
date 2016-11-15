@@ -26,7 +26,7 @@ public class timeDialog extends DialogFragment {
         // Retornar en nueva instancia del dialogo selector de tiempo
         return new TimePickerDialog(
                 getActivity(),
-                (TimePickerDialog.OnTimeSetListener) getActivity(),
+                (TimePickerDialog.OnTimeSetListener) getContext(),
                 hour,
                 minute,
                 DateFormat.is24HourFormat(getActivity()));
