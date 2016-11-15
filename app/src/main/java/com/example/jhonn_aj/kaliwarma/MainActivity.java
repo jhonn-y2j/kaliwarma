@@ -18,11 +18,13 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Inicio");
         setSupportActionBar(toolbar);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_principal,new main_fragment()).commit();
@@ -80,19 +82,24 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             fragment= new main_fragment();
+            toolbar.setTitle(item.getTitle());
         } else if (id == R.id.nav_estadistica) {
             fragment= new estadistica_fragment();
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+            toolbar.setTitle(item.getTitle());
+        } else if (id == R.id.nav_list_lock) {
+            fragment= new listar_lock_fragment();
+            toolbar.setTitle(item.getTitle());
+        } else if (id == R.id.nav_agenda) {
+            toolbar.setTitle(item.getTitle());
+        } else if (id == R.id.nav_lock_create) {
+            fragment= new create_lock_fragment();
+            toolbar.setTitle(item.getTitle());
+        } else if (id == R.id.nav_settings) {
+            toolbar.setTitle(item.getTitle());
         }
 
         if (fragment!=null){
+
             fragmentManager.beginTransaction().replace(R.id.contenedor_principal,fragment).commit();
         }
 

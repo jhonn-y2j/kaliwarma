@@ -1,36 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"  >
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
             android:title="Inicio" />
         <item
-            android:id="@+id/nav_estadistica"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Estadística" />
+            android:id="@+id/nav_lock_create"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Crear Bloqueo" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_list_lock"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-    </group>
+            android:title="Listar Bloqueo" />
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
+        <item
+            android:id="@+id/nav_agenda"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Agenda" />
+        <item
+            android:id="@+id/nav_estadistica"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Estadísticas" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Opciones" />
+    </group>
 
 </menu>
