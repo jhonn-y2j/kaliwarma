@@ -25,6 +25,11 @@ public class aplicacion {
 
     }
 
+    public aplicacion(int img_aplication, String title) {
+        this.img_aplication = img_aplication;
+        this.title = title;
+    }
+
     public aplicacion(int img_aplication, String title, boolean verificar) {
         this.img_aplication = img_aplication;
         this.title = title;

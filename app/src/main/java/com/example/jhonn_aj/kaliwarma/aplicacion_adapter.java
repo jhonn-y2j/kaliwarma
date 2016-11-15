@@ -10,6 +10,8 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 /**
  * Created by jhonn_aj on 15/11/2016.
  */
@@ -17,14 +19,16 @@ public class aplicacion_adapter extends ArrayAdapter<aplicacion> {
 
     Context mycontext;
     int mylayoutResourceID;
-    aplicacion datos[]=null;
+    List<aplicacion> datos;
+    boolean vista;
 
-    public aplicacion_adapter(Context context,int layoutResourceID,aplicacion[] data){
+    public aplicacion_adapter(Context context, int layoutResourceID, List<aplicacion> data, boolean vista){
 
         super(context,layoutResourceID,data);
         this.mycontext=context;
         this.mylayoutResourceID=layoutResourceID;
         this.datos=data;
+        this.vista=vista;
 
     }
 
@@ -41,7 +45,10 @@ public class aplicacion_adapter extends ArrayAdapter<aplicacion> {
             holder=new aplicacionHolder();
             holder.imagen=(ImageView)row.findViewById(R.id.image);
             holder.campo1=(TextView)row.findViewById(R.id.campo1);
-            holder.box=(CheckBox)row.findViewById(R.id.checkBox8);
+            if (vista==true) {
+                holder.box = (CheckBox) row.findViewById(R.id.checkBox8);
+                holder.box.setVisibility(View.VISIBLE);
+            }
             row.setTag(holder);
 
         }
@@ -50,9 +57,11 @@ public class aplicacion_adapter extends ArrayAdapter<aplicacion> {
 
         }
 
-        aplicacion fila=datos[position];
+        aplicacion fila=datos.get(position);
         holder.campo1.setText(fila.getTitle());
-        holder.box.setChecked(fila.isVerificar());
+        if (vista==true) {
+            holder.box.setChecked(fila.isVerificar());
+        }
         holder.imagen.setImageResource(fila.getImg_aplication());
 
         return row;

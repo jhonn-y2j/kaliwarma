@@ -12,6 +12,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by jhonn_aj on 15/11/2016.
  */
@@ -20,7 +23,7 @@ public class activity_aplicaciones extends AppCompatActivity {
     ListView listview;
     Button boton;
     aplicacion_adapter adapter;
-    aplicacion[] datos;
+    List<aplicacion> datos;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,14 +34,14 @@ public class activity_aplicaciones extends AppCompatActivity {
 
         boton=(Button) findViewById(R.id.button7);
 
-        datos=new aplicacion[]{
-                new aplicacion(R.drawable.facebook,"Facebook",false),
-                new aplicacion(R.drawable.twiter,"Twiter",false),
-                new aplicacion(R.drawable.messenger,"Messenger",false),
-                new aplicacion(R.drawable.whatsapp,"Whatssapp",false),
-                new aplicacion(R.drawable.instagram,"Instagram",false),
-                new aplicacion(R.drawable.chrome,"Chrome",false),
-        };
+        datos=new ArrayList<>();
+
+        datos.add(new aplicacion(R.drawable.facebook,"Facebook",false));
+        datos.add(new aplicacion(R.drawable.twiter,"Twiter",false));
+        datos.add(new aplicacion(R.drawable.messenger,"Messenger",false));
+        datos.add(new aplicacion(R.drawable.whatsapp,"Whatssapp",false));
+        datos.add(new aplicacion(R.drawable.instagram,"Instagram",false));
+        datos.add(new aplicacion(R.drawable.chrome,"Chrome",false));
 
         findViewById(R.id.checkBox9).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +50,7 @@ public class activity_aplicaciones extends AppCompatActivity {
             }
         });
 
-        adapter=new aplicacion_adapter(this,R.layout.list_item_aplication,datos);
+        adapter=new aplicacion_adapter(this,R.layout.list_item_aplication,datos,true);
 
         listview=(ListView) findViewById(R.id.listview);
 
@@ -75,11 +78,12 @@ public class activity_aplicaciones extends AppCompatActivity {
         int i=0;
         for(aplicacion a:datos){
 
-            a.setVerificar(true);
-            datos[i]=a;
+            //a.setVerificar(true);
+            //datos[i]=a;
+            datos.get(i).setVerificar(true);
             i++;
         }
-        aplicacion_adapter adapter=new aplicacion_adapter(this,R.layout.list_item_aplication,datos);
+        aplicacion_adapter adapter=new aplicacion_adapter(this,R.layout.list_item_aplication,datos,true);
         listview.setAdapter(adapter);
 
     }
